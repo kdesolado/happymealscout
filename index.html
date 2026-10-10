@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A community-powered Happy Meal toy finder." />
+    <link rel="icon" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Happy Toy Scout — Find Happy Meal toys near you</title>
+  </head>
+  <body>
+    <header class="site-header" id="top">
+      <a class="brand" href="#top" aria-label="Happy Toy Scout home">
+        <img src="assets/happy-toy-scout-icon.png" alt="" />
+        <span><strong>Happy Toy Scout</strong><small>Live tracker</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Primary navigation">
+        <span class="pill muted">Community pilot</span>
+        <details class="menu">
+          <summary class="pill">Explore <span>⌄</span></summary>
+          <div class="menu-panel">
+            <a href="#tracker">Live tracker</a>
+            <a href="#collection">Collections</a>
+            <a href="#reports">Reports</a>
+            <a href="#about">About the data</a>
+          </div>
+        </details>
+        <select class="pill language" id="language" aria-label="Language">
+          <option value="en">🌐 English</option>
+          <option value="es">🌐 Español</option>
+        </select>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-art" aria-hidden="true"></div>
+        <p class="eyebrow">September 2026 collection · SpongeBob × One Piece</p>
+        <h1 id="hero-title">Find McDonald’s SpongeBob × One Piece Happy Meal toys near you</h1>
+        <p class="hero-links">
+          <a href="#collection">Current collection guide</a><span>|</span>
+          <a href="#impact">An estimated $38.02M &amp; 1.58M hours saved — see how →</a>
+        </p>
+      </section>
+
+      <section class="content-shell" id="tracker">
+        <aside class="notice coming">
+          <strong>Coming soon in October</strong>
+          <a href="#collection">Burger King × Hello Kitty &amp; Friends (unofficial)</a>
+        </aside>
+        <aside class="notice support">
+          <div><strong>Keep the site going</strong><span>Optional support helps keep future collections coming.</span></div>
+          <a href="https://ko-fi.com/happytoyscout" target="_blank" rel="noreferrer">♡ &nbsp;Support with Coffee</a>
+        </aside>
+
+        <form class="finder" id="finder-form">
+          <label class="zip-label" for="zip-search">ZIP Code</label>
+          <input id="zip-search" inputmode="numeric" maxlength="5" placeholder="Enter ZIP Code" autocomplete="postal-code" />
+          <button class="go-button" type="submit">Go</button>
+          <label class="select-wrap" aria-label="Choose a toy">
+            <span>✦</span>
+            <select id="toy-filter">
+              <option value="any">Any toy</option>
+              <option value="luffy">#1 SpongeBob × Luffy</option>
+              <option value="zoro">#4 Patrick × Zoro</option>
+              <option value="nami">#7 Sandy × Nami</option>
+              <option value="chopper">#12 Gary × Chopper</option>
+              <option value="sold-out">Sold out</option>
+            </select>
+          </label>
+          <button class="share-button" id="share-button" type="button" disabled>↗ &nbsp;Share this search</button>
+          <div class="report-count"><strong id="report-count">4,300 community reports shared</strong><a href="#collection">Trade, sell, or find toys nearby</a></div>
+        </form>
+
+        <div class="map" id="map" role="region" aria-label="Map of McDonald's locations">
+          <div class="map-grid" aria-hidden="true"></div>
+          <div class="road road-one" aria-hidden="true"></div>
+          <div class="road road-two" aria-hidden="true"></div>
+          <div class="water" aria-hidden="true"></div>
+          <div class="map-info">
+            <div class="map-info-head"><strong><span id="locations-count">14</span> locations in view</strong><button type="button" id="collapse-map" aria-label="Hide map information">−</button></div>
+            <p>Move the map to explore an area <span>· then select a store to report.</span></p>
+            <button class="location-button" type="button" id="location-button">Allow location to find nearby stores</button>
+          </div>
+          <div class="zoom" aria-label="Map zoom controls"><button type="button" id="zoom-in">+</button><button type="button" id="zoom-out">−</button></div>
+          <button class="marker marker-a" type="button" aria-label="Store in Foster City">M</button>
+          <button class="marker marker-b" type="button" aria-label="Store in San Mateo">M</button>
+          <button class="marker marker-c" type="button" aria-label="Store in Redwood City">M</button>
+          <button class="marker marker-d" type="button" aria-label="Store in Newark">M</button>
+          <button class="cluster marker-e" type="button" aria-label="4 stores"><strong>4</strong><small>stores</small></button>
+          <div class="map-label label-a">Foster City</div><div class="map-label label-b">San Mateo</div><div class="map-label label-c">Newark</div>
+          <span class="map-credit">Illustrative map · community demo</span>
+        </div>
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      </section>
+
+      <section class="collection" id="collection" aria-labelledby="collection-title">
+        <div class="section-heading">
+          <div><p class="eyebrow">Current collection snapshot</p><h2 id="collection-title">SpongeBob × One Piece</h2></div>
+          <div class="snapshot-meta"><strong>15 toys · <span id="snapshot-count">4,300</span> community reports</strong><small>Snapshot generated: Oct 8, 2026, 7:38 PM UTC</small></div>
+        </div>
+        <div class="toy-grid" id="toy-grid"></div>
+        <p class="fine-print">These facts come from a release-generated community snapshot and do not represent current official inventory.</p>
+      </section>
+
+      <section class="impact" id="impact">
+        <p class="eyebrow">Made by collectors, for collectors</p>
+        <h2>One quick check before the drive.</h2>
+        <p>Community reports can help families spend less time calling stores and more time enjoying the hunt. Inventory changes quickly, so treat every result as a recent clue—not a guarantee.</p>
+        <a href="#tracker">Check your ZIP code ↑</a>
+      </section>
+    </main>
+
+    <footer id="about">
+      <div class="footer-copy">
+        <a class="brand footer-brand" href="#top"><img src="assets/happy-toy-scout-icon.png" alt="" /><span><strong>Happy Toy Scout</strong><small>Community-powered toy tracking</small></span></a>
+        <p>© 2026 Happy Toy Scout. Community-sourced toy information for collectors in the United States.</p>
+        <p>Availability and store policies are not guaranteed. Happy Toy Scout is an independent community project and is not affiliated with, endorsed by, or sponsored by McDonald’s or any featured brand. All trademarks belong to their respective owners.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Explore"><strong>Explore</strong><a href="#tracker">Live tracker</a><a href="#collection">Collections</a><a href="#reports">Reports</a><a href="#about">About the data</a></nav>
+      <div class="social"><strong>Follow</strong><div><a href="https://www.instagram.com/happytoyscout/" aria-label="Instagram"><img src="assets/instagram.png" alt="" /></a><a href="https://www.facebook.com/profile.php?id=61593937417299" aria-label="Facebook"><img src="assets/facebook.svg" alt="" /></a><a href="https://x.com/HappyToyScout" aria-label="X"><img src="assets/x.png" alt="" /></a><a href="https://www.threads.com/@happytoyscout" aria-label="Threads"><img src="assets/threads.png" alt="" /></a></div></div>
+    </footer>
+    <button class="feedback" type="button" id="feedback">Feedback</button>
+    <script src="script.js"></script>
+  </body>
+</html>
