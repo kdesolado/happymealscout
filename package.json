@@ -1,0 +1,14 @@
+{
+  "name": "happymealscout",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Community-powered Happy Meal toy finder",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "npm run build && wrangler dev",
+    "deploy": "npm run build && wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4.45.0"
+  }
+}

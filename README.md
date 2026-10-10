@@ -12,6 +12,18 @@ python3 -m http.server 4173
 
 Then open `http://localhost:4173`.
 
+## Cloudflare deployment
+
+This project is configured for Cloudflare Workers Static Assets, which serves the site without invoking a Worker for normal asset requests.
+
+```bash
+npm install
+npm run build
+npm run deploy
+```
+
+The deploy command publishes the contents of `dist/` using `wrangler.jsonc`. Unknown routes fall back to `index.html`, so shared ZIP and toy-filter URLs continue to work.
+
 ## Project structure
 
 - `index.html` — page structure and content
